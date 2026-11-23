@@ -1,0 +1,84 @@
+                                                                  QUERY PLAN                                                                  
+----------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=673.89..673.91 rows=10 width=21) (actual time=6.437..6.438 rows=10.00 loops=1)
+   Buffers: shared hit=208
+   ->  Sort  (cost=673.89..678.89 rows=2001 width=21) (actual time=6.436..6.437 rows=10.00 loops=1)
+         Sort Key: ((count(s.id))::integer) DESC, q.id
+         Sort Method: top-N heapsort  Memory: 26kB
+         Buffers: shared hit=208
+         ->  HashAggregate  (cost=605.63..630.65 rows=2001 width=21) (actual time=6.076..6.239 rows=2000.00 loops=1)
+               Group Key: q.id
+               Batches: 1  Memory Usage: 217kB
+               Buffers: shared hit=208
+               ->  Hash Join  (cost=86.02..505.63 rows=20000 width=21) (actual time=0.374..4.051 rows=20000.00 loops=1)
+                     Hash Cond: (s.question_id = q.id)
+                     Buffers: shared hit=208
+                     ->  Seq Scan on submissions s  (cost=0.00..367.00 rows=20000 width=8) (actual time=0.006..1.203 rows=20000.00 loops=1)
+                           Buffers: shared hit=167
+                     ->  Hash  (cost=61.01..61.01 rows=2001 width=17) (actual time=0.360..0.360 rows=2001.00 loops=1)
+                           Buckets: 2048  Batches: 1  Memory Usage: 113kB
+                           Buffers: shared hit=41
+                           ->  Seq Scan on questions q  (cost=0.00..61.01 rows=2001 width=17) (actual time=0.005..0.182 rows=2001.00 loops=1)
+                                 Buffers: shared hit=41
+ Planning:
+   Buffers: shared hit=19
+ Planning Time: 0.208 ms
+ Execution Time: 6.464 ms
+(24 rows)
+
+                                                                  QUERY PLAN                                                                  
+----------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=673.89..673.91 rows=10 width=21) (actual time=4.909..4.910 rows=10.00 loops=1)
+   Buffers: shared hit=208
+   ->  Sort  (cost=673.89..678.89 rows=2001 width=21) (actual time=4.908..4.909 rows=10.00 loops=1)
+         Sort Key: ((count(s.id))::integer) DESC, q.id
+         Sort Method: top-N heapsort  Memory: 26kB
+         Buffers: shared hit=208
+         ->  HashAggregate  (cost=605.63..630.65 rows=2001 width=21) (actual time=4.585..4.730 rows=2000.00 loops=1)
+               Group Key: q.id
+               Batches: 1  Memory Usage: 217kB
+               Buffers: shared hit=208
+               ->  Hash Join  (cost=86.02..505.63 rows=20000 width=21) (actual time=0.217..2.906 rows=20000.00 loops=1)
+                     Hash Cond: (s.question_id = q.id)
+                     Buffers: shared hit=208
+                     ->  Seq Scan on submissions s  (cost=0.00..367.00 rows=20000 width=8) (actual time=0.003..0.622 rows=20000.00 loops=1)
+                           Buffers: shared hit=167
+                     ->  Hash  (cost=61.01..61.01 rows=2001 width=17) (actual time=0.213..0.213 rows=2001.00 loops=1)
+                           Buckets: 2048  Batches: 1  Memory Usage: 113kB
+                           Buffers: shared hit=41
+                           ->  Seq Scan on questions q  (cost=0.00..61.01 rows=2001 width=17) (actual time=0.002..0.104 rows=2001.00 loops=1)
+                                 Buffers: shared hit=41
+ Planning:
+   Buffers: shared hit=15
+ Planning Time: 0.094 ms
+ Execution Time: 4.927 ms
+(24 rows)
+
+                                                                  QUERY PLAN                                                                  
+----------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=673.89..673.91 rows=10 width=21) (actual time=4.970..4.971 rows=10.00 loops=1)
+   Buffers: shared hit=208
+   ->  Sort  (cost=673.89..678.89 rows=2001 width=21) (actual time=4.969..4.970 rows=10.00 loops=1)
+         Sort Key: ((count(s.id))::integer) DESC, q.id
+         Sort Method: top-N heapsort  Memory: 26kB
+         Buffers: shared hit=208
+         ->  HashAggregate  (cost=605.63..630.65 rows=2001 width=21) (actual time=4.702..4.822 rows=2000.00 loops=1)
+               Group Key: q.id
+               Batches: 1  Memory Usage: 217kB
+               Buffers: shared hit=208
+               ->  Hash Join  (cost=86.02..505.63 rows=20000 width=21) (actual time=0.206..3.001 rows=20000.00 loops=1)
+                     Hash Cond: (s.question_id = q.id)
+                     Buffers: shared hit=208
+                     ->  Seq Scan on submissions s  (cost=0.00..367.00 rows=20000 width=8) (actual time=0.002..0.636 rows=20000.00 loops=1)
+                           Buffers: shared hit=167
+                     ->  Hash  (cost=61.01..61.01 rows=2001 width=17) (actual time=0.202..0.202 rows=2001.00 loops=1)
+                           Buckets: 2048  Batches: 1  Memory Usage: 113kB
+                           Buffers: shared hit=41
+                           ->  Seq Scan on questions q  (cost=0.00..61.01 rows=2001 width=17) (actual time=0.002..0.103 rows=2001.00 loops=1)
+                                 Buffers: shared hit=41
+ Planning:
+   Buffers: shared hit=15
+ Planning Time: 0.101 ms
+ Execution Time: 4.984 ms
+(24 rows)
+

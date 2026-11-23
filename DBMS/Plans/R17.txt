@@ -1,0 +1,32 @@
+                                                                 QUERY PLAN                                                                  
+---------------------------------------------------------------------------------------------------------------------------------------------
+ Index Scan using user_progress_user_id_key on user_progress  (cost=0.28..8.29 rows=1 width=20) (actual time=0.011..0.011 rows=1.00 loops=1)
+   Index Cond: (user_id = 1)
+   Index Searches: 1
+   Buffers: shared hit=3
+ Planning:
+   Buffers: shared hit=40
+ Planning Time: 0.147 ms
+ Execution Time: 0.013 ms
+(8 rows)
+
+                                                                 QUERY PLAN                                                                  
+---------------------------------------------------------------------------------------------------------------------------------------------
+ Index Scan using user_progress_user_id_key on user_progress  (cost=0.28..8.29 rows=1 width=20) (actual time=0.002..0.002 rows=1.00 loops=1)
+   Index Cond: (user_id = 1)
+   Index Searches: 1
+   Buffers: shared hit=3
+ Planning Time: 0.010 ms
+ Execution Time: 0.005 ms
+(6 rows)
+
+                                                                 QUERY PLAN                                                                  
+---------------------------------------------------------------------------------------------------------------------------------------------
+ Index Scan using user_progress_user_id_key on user_progress  (cost=0.28..8.29 rows=1 width=20) (actual time=0.002..0.002 rows=1.00 loops=1)
+   Index Cond: (user_id = 1)
+   Index Searches: 1
+   Buffers: shared hit=3
+ Planning Time: 0.008 ms
+ Execution Time: 0.004 ms
+(6 rows)
+

@@ -1,0 +1,32 @@
+                                                        QUERY PLAN                                                         
+---------------------------------------------------------------------------------------------------------------------------
+ Index Scan using users_email_key on users  (cost=0.28..8.29 rows=1 width=56) (actual time=0.043..0.093 rows=1.00 loops=1)
+   Index Cond: ((email)::text = 'user1@skillforge.test'::text)
+   Index Searches: 1
+   Buffers: shared hit=5 dirtied=1
+ Planning:
+   Buffers: shared hit=94
+ Planning Time: 1.355 ms
+ Execution Time: 0.164 ms
+(8 rows)
+
+                                                        QUERY PLAN                                                         
+---------------------------------------------------------------------------------------------------------------------------
+ Index Scan using users_email_key on users  (cost=0.28..8.29 rows=1 width=56) (actual time=0.006..0.007 rows=1.00 loops=1)
+   Index Cond: ((email)::text = 'user1@skillforge.test'::text)
+   Index Searches: 1
+   Buffers: shared hit=3
+ Planning Time: 0.043 ms
+ Execution Time: 0.015 ms
+(6 rows)
+
+                                                        QUERY PLAN                                                         
+---------------------------------------------------------------------------------------------------------------------------
+ Index Scan using users_email_key on users  (cost=0.28..8.29 rows=1 width=56) (actual time=0.005..0.005 rows=1.00 loops=1)
+   Index Cond: ((email)::text = 'user1@skillforge.test'::text)
+   Index Searches: 1
+   Buffers: shared hit=3
+ Planning Time: 0.029 ms
+ Execution Time: 0.011 ms
+(6 rows)
+

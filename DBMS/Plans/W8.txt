@@ -1,0 +1,42 @@
+                                                   QUERY PLAN                                                    
+-----------------------------------------------------------------------------------------------------------------
+ Insert on contest_registrations  (cost=0.00..0.02 rows=1 width=20) (actual time=0.007..0.007 rows=0.00 loops=1)
+   Conflict Resolution: NOTHING
+   Conflict Arbiter Indexes: contest_registrations_user_id_contest_id_key
+   Tuples Inserted: 0
+   Conflicting Tuples: 1
+   Buffers: shared hit=4
+   ->  Result  (cost=0.00..0.02 rows=1 width=20) (actual time=0.002..0.002 rows=1.00 loops=1)
+         Buffers: shared hit=1
+ Planning Time: 0.008 ms
+ Execution Time: 0.012 ms
+(10 rows)
+
+                                                   QUERY PLAN                                                    
+-----------------------------------------------------------------------------------------------------------------
+ Insert on contest_registrations  (cost=0.00..0.02 rows=1 width=20) (actual time=0.004..0.004 rows=0.00 loops=1)
+   Conflict Resolution: NOTHING
+   Conflict Arbiter Indexes: contest_registrations_user_id_contest_id_key
+   Tuples Inserted: 0
+   Conflicting Tuples: 1
+   Buffers: shared hit=4
+   ->  Result  (cost=0.00..0.02 rows=1 width=20) (actual time=0.001..0.001 rows=1.00 loops=1)
+         Buffers: shared hit=1
+ Planning Time: 0.004 ms
+ Execution Time: 0.007 ms
+(10 rows)
+
+                                                   QUERY PLAN                                                    
+-----------------------------------------------------------------------------------------------------------------
+ Insert on contest_registrations  (cost=0.00..0.02 rows=1 width=20) (actual time=0.003..0.003 rows=0.00 loops=1)
+   Conflict Resolution: NOTHING
+   Conflict Arbiter Indexes: contest_registrations_user_id_contest_id_key
+   Tuples Inserted: 0
+   Conflicting Tuples: 1
+   Buffers: shared hit=4
+   ->  Result  (cost=0.00..0.02 rows=1 width=20) (actual time=0.001..0.001 rows=1.00 loops=1)
+         Buffers: shared hit=1
+ Planning Time: 0.003 ms
+ Execution Time: 0.005 ms
+(10 rows)
+

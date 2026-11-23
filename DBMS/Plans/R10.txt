@@ -1,0 +1,54 @@
+                                                                  QUERY PLAN                                                                   
+-----------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=37.31..37.34 rows=10 width=19) (actual time=0.013..0.014 rows=10.00 loops=1)
+   Sort Key: submitted_at DESC
+   Sort Method: quicksort  Memory: 25kB
+   Buffers: shared hit=13
+   ->  Bitmap Heap Scan on submissions  (cost=4.37..37.15 rows=10 width=19) (actual time=0.006..0.011 rows=10.00 loops=1)
+         Recheck Cond: (question_id = 1)
+         Heap Blocks: exact=11
+         Buffers: shared hit=13
+         ->  Bitmap Index Scan on idx_submissions_question_id  (cost=0.00..4.36 rows=10 width=0) (actual time=0.003..0.003 rows=16.00 loops=1)
+               Index Cond: (question_id = 1)
+               Index Searches: 1
+               Buffers: shared hit=2
+ Planning Time: 0.021 ms
+ Execution Time: 0.018 ms
+(14 rows)
+
+                                                                  QUERY PLAN                                                                   
+-----------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=37.31..37.34 rows=10 width=19) (actual time=0.011..0.012 rows=10.00 loops=1)
+   Sort Key: submitted_at DESC
+   Sort Method: quicksort  Memory: 25kB
+   Buffers: shared hit=13
+   ->  Bitmap Heap Scan on submissions  (cost=4.37..37.15 rows=10 width=19) (actual time=0.006..0.009 rows=10.00 loops=1)
+         Recheck Cond: (question_id = 1)
+         Heap Blocks: exact=11
+         Buffers: shared hit=13
+         ->  Bitmap Index Scan on idx_submissions_question_id  (cost=0.00..4.36 rows=10 width=0) (actual time=0.002..0.002 rows=16.00 loops=1)
+               Index Cond: (question_id = 1)
+               Index Searches: 1
+               Buffers: shared hit=2
+ Planning Time: 0.017 ms
+ Execution Time: 0.016 ms
+(14 rows)
+
+                                                                  QUERY PLAN                                                                   
+-----------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=37.31..37.34 rows=10 width=19) (actual time=0.011..0.011 rows=10.00 loops=1)
+   Sort Key: submitted_at DESC
+   Sort Method: quicksort  Memory: 25kB
+   Buffers: shared hit=13
+   ->  Bitmap Heap Scan on submissions  (cost=4.37..37.15 rows=10 width=19) (actual time=0.006..0.009 rows=10.00 loops=1)
+         Recheck Cond: (question_id = 1)
+         Heap Blocks: exact=11
+         Buffers: shared hit=13
+         ->  Bitmap Index Scan on idx_submissions_question_id  (cost=0.00..4.36 rows=10 width=0) (actual time=0.002..0.002 rows=16.00 loops=1)
+               Index Cond: (question_id = 1)
+               Index Searches: 1
+               Buffers: shared hit=2
+ Planning Time: 0.017 ms
+ Execution Time: 0.015 ms
+(14 rows)
+

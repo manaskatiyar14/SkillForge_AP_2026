@@ -1,0 +1,36 @@
+                                                   QUERY PLAN                                                    
+-----------------------------------------------------------------------------------------------------------------
+ Insert on contest_registrations  (cost=0.00..0.02 rows=1 width=20) (actual time=0.146..0.147 rows=1.00 loops=1)
+   Buffers: shared hit=25 dirtied=5
+   ->  Result  (cost=0.00..0.02 rows=1 width=20) (actual time=0.039..0.039 rows=1.00 loops=1)
+         Buffers: shared hit=14 dirtied=1
+ Planning Time: 0.008 ms
+ Trigger for constraint contest_registrations_user_id_fkey: time=0.061 calls=1
+ Trigger for constraint contest_registrations_contest_id_fkey: time=0.035 calls=1
+ Execution Time: 0.249 ms
+(8 rows)
+
+                                                   QUERY PLAN                                                    
+-----------------------------------------------------------------------------------------------------------------
+ Insert on contest_registrations  (cost=0.00..0.02 rows=1 width=20) (actual time=0.011..0.011 rows=1.00 loops=1)
+   Buffers: shared hit=9
+   ->  Result  (cost=0.00..0.02 rows=1 width=20) (actual time=0.001..0.001 rows=1.00 loops=1)
+         Buffers: shared hit=1
+ Planning Time: 0.004 ms
+ Trigger for constraint contest_registrations_user_id_fkey: time=0.016 calls=1
+ Trigger for constraint contest_registrations_contest_id_fkey: time=0.011 calls=1
+ Execution Time: 0.042 ms
+(8 rows)
+
+                                                   QUERY PLAN                                                    
+-----------------------------------------------------------------------------------------------------------------
+ Insert on contest_registrations  (cost=0.00..0.02 rows=1 width=20) (actual time=0.010..0.010 rows=1.00 loops=1)
+   Buffers: shared hit=9
+   ->  Result  (cost=0.00..0.02 rows=1 width=20) (actual time=0.001..0.001 rows=1.00 loops=1)
+         Buffers: shared hit=1
+ Planning Time: 0.003 ms
+ Trigger for constraint contest_registrations_user_id_fkey: time=0.013 calls=1
+ Trigger for constraint contest_registrations_contest_id_fkey: time=0.010 calls=1
+ Execution Time: 0.036 ms
+(8 rows)
+

@@ -1,0 +1,32 @@
+                                                      QUERY PLAN                                                      
+----------------------------------------------------------------------------------------------------------------------
+ Index Scan using users_pkey on users  (cost=0.28..8.29 rows=1 width=43) (actual time=0.024..0.024 rows=1.00 loops=1)
+   Index Cond: (id = 1)
+   Index Searches: 1
+   Buffers: shared hit=3
+ Planning:
+   Buffers: shared hit=8
+ Planning Time: 0.049 ms
+ Execution Time: 0.031 ms
+(8 rows)
+
+                                                      QUERY PLAN                                                      
+----------------------------------------------------------------------------------------------------------------------
+ Index Scan using users_pkey on users  (cost=0.28..8.29 rows=1 width=43) (actual time=0.005..0.006 rows=1.00 loops=1)
+   Index Cond: (id = 1)
+   Index Searches: 1
+   Buffers: shared hit=3
+ Planning Time: 0.026 ms
+ Execution Time: 0.012 ms
+(6 rows)
+
+                                                      QUERY PLAN                                                      
+----------------------------------------------------------------------------------------------------------------------
+ Index Scan using users_pkey on users  (cost=0.28..8.29 rows=1 width=43) (actual time=0.005..0.006 rows=1.00 loops=1)
+   Index Cond: (id = 1)
+   Index Searches: 1
+   Buffers: shared hit=3
+ Planning Time: 0.025 ms
+ Execution Time: 0.012 ms
+(6 rows)
+

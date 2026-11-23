@@ -1,0 +1,30 @@
+                                                          QUERY PLAN                                                          
+------------------------------------------------------------------------------------------------------------------------------
+ Index Scan using questions_pkey on questions  (cost=0.28..8.29 rows=1 width=95) (actual time=0.010..0.010 rows=1.00 loops=1)
+   Index Cond: (id = 1)
+   Index Searches: 1
+   Buffers: shared hit=3
+ Planning Time: 0.021 ms
+ Execution Time: 0.015 ms
+(6 rows)
+
+                                                          QUERY PLAN                                                          
+------------------------------------------------------------------------------------------------------------------------------
+ Index Scan using questions_pkey on questions  (cost=0.28..8.29 rows=1 width=95) (actual time=0.003..0.004 rows=1.00 loops=1)
+   Index Cond: (id = 1)
+   Index Searches: 1
+   Buffers: shared hit=3
+ Planning Time: 0.017 ms
+ Execution Time: 0.008 ms
+(6 rows)
+
+                                                          QUERY PLAN                                                          
+------------------------------------------------------------------------------------------------------------------------------
+ Index Scan using questions_pkey on questions  (cost=0.28..8.29 rows=1 width=95) (actual time=0.003..0.003 rows=1.00 loops=1)
+   Index Cond: (id = 1)
+   Index Searches: 1
+   Buffers: shared hit=3
+ Planning Time: 0.016 ms
+ Execution Time: 0.007 ms
+(6 rows)
+

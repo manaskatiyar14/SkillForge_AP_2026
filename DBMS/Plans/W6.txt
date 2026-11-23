@@ -1,0 +1,36 @@
+                                              QUERY PLAN                                               
+-------------------------------------------------------------------------------------------------------
+ Insert on submissions  (cost=0.00..0.02 rows=1 width=45) (actual time=0.240..0.240 rows=1.00 loops=1)
+   Buffers: shared hit=27 dirtied=6
+   ->  Result  (cost=0.00..0.02 rows=1 width=45) (actual time=0.039..0.039 rows=1.00 loops=1)
+         Buffers: shared hit=14 dirtied=1
+ Planning Time: 0.011 ms
+ Trigger for constraint submissions_user_id_fkey: time=0.102 calls=1
+ Trigger for constraint submissions_question_id_fkey: time=0.053 calls=1
+ Execution Time: 0.403 ms
+(8 rows)
+
+                                              QUERY PLAN                                               
+-------------------------------------------------------------------------------------------------------
+ Insert on submissions  (cost=0.00..0.02 rows=1 width=45) (actual time=0.040..0.040 rows=1.00 loops=1)
+   Buffers: shared hit=11
+   ->  Result  (cost=0.00..0.02 rows=1 width=45) (actual time=0.003..0.003 rows=1.00 loops=1)
+         Buffers: shared hit=1
+ Planning Time: 0.013 ms
+ Trigger for constraint submissions_user_id_fkey: time=0.036 calls=1
+ Trigger for constraint submissions_question_id_fkey: time=0.026 calls=1
+ Execution Time: 0.111 ms
+(8 rows)
+
+                                              QUERY PLAN                                               
+-------------------------------------------------------------------------------------------------------
+ Insert on submissions  (cost=0.00..0.02 rows=1 width=45) (actual time=0.022..0.022 rows=1.00 loops=1)
+   Buffers: shared hit=11
+   ->  Result  (cost=0.00..0.02 rows=1 width=45) (actual time=0.002..0.002 rows=1.00 loops=1)
+         Buffers: shared hit=1
+ Planning Time: 0.010 ms
+ Trigger for constraint submissions_user_id_fkey: time=0.027 calls=1
+ Trigger for constraint submissions_question_id_fkey: time=0.023 calls=1
+ Execution Time: 0.079 ms
+(8 rows)
+

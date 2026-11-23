@@ -1,0 +1,42 @@
+                                                   QUERY PLAN                                                    
+-----------------------------------------------------------------------------------------------------------------
+ Sort  (cost=71.18..71.21 rows=10 width=95) (actual time=0.418..0.431 rows=401.00 loops=1)
+   Sort Key: id
+   Sort Method: quicksort  Memory: 71kB
+   Buffers: shared hit=44
+   ->  Seq Scan on questions  (cost=0.00..71.02 rows=10 width=95) (actual time=0.009..0.328 rows=401.00 loops=1)
+         Filter: (lower((category)::text) = 'dsa'::text)
+         Rows Removed by Filter: 1600
+         Buffers: shared hit=41
+ Planning Time: 0.043 ms
+ Execution Time: 0.453 ms
+(10 rows)
+
+                                                   QUERY PLAN                                                    
+-----------------------------------------------------------------------------------------------------------------
+ Sort  (cost=71.18..71.21 rows=10 width=95) (actual time=0.734..0.759 rows=401.00 loops=1)
+   Sort Key: id
+   Sort Method: quicksort  Memory: 71kB
+   Buffers: shared hit=41
+   ->  Seq Scan on questions  (cost=0.00..71.02 rows=10 width=95) (actual time=0.011..0.611 rows=401.00 loops=1)
+         Filter: (lower((category)::text) = 'dsa'::text)
+         Rows Removed by Filter: 1600
+         Buffers: shared hit=41
+ Planning Time: 0.047 ms
+ Execution Time: 0.787 ms
+(10 rows)
+
+                                                   QUERY PLAN                                                    
+-----------------------------------------------------------------------------------------------------------------
+ Sort  (cost=71.18..71.21 rows=10 width=95) (actual time=0.814..0.839 rows=401.00 loops=1)
+   Sort Key: id
+   Sort Method: quicksort  Memory: 71kB
+   Buffers: shared hit=41
+   ->  Seq Scan on questions  (cost=0.00..71.02 rows=10 width=95) (actual time=0.020..0.651 rows=401.00 loops=1)
+         Filter: (lower((category)::text) = 'dsa'::text)
+         Rows Removed by Filter: 1600
+         Buffers: shared hit=41
+ Planning Time: 0.050 ms
+ Execution Time: 0.870 ms
+(10 rows)
+

@@ -1,0 +1,36 @@
+                                                             QUERY PLAN                                                              
+-------------------------------------------------------------------------------------------------------------------------------------
+ Update on questions  (cost=0.28..8.29 rows=1 width=900) (actual time=0.065..0.065 rows=1.00 loops=1)
+   Buffers: shared hit=17 dirtied=3
+   ->  Index Scan using questions_pkey on questions  (cost=0.28..8.29 rows=1 width=900) (actual time=0.003..0.003 rows=1.00 loops=1)
+         Index Cond: (id = 1)
+         Index Searches: 1
+         Buffers: shared hit=3
+ Planning Time: 0.018 ms
+ Execution Time: 0.082 ms
+(8 rows)
+
+                                                             QUERY PLAN                                                              
+-------------------------------------------------------------------------------------------------------------------------------------
+ Update on questions  (cost=0.28..8.29 rows=1 width=900) (actual time=0.053..0.055 rows=1.00 loops=1)
+   Buffers: shared hit=18 dirtied=1
+   ->  Index Scan using questions_pkey on questions  (cost=0.28..8.29 rows=1 width=900) (actual time=0.007..0.009 rows=1.00 loops=1)
+         Index Cond: (id = 1)
+         Index Searches: 1
+         Buffers: shared hit=5
+ Planning Time: 0.023 ms
+ Execution Time: 0.063 ms
+(8 rows)
+
+                                                             QUERY PLAN                                                              
+-------------------------------------------------------------------------------------------------------------------------------------
+ Update on questions  (cost=0.28..8.29 rows=1 width=900) (actual time=0.053..0.054 rows=1.00 loops=1)
+   Buffers: shared hit=18 dirtied=1
+   ->  Index Scan using questions_pkey on questions  (cost=0.28..8.29 rows=1 width=900) (actual time=0.006..0.007 rows=1.00 loops=1)
+         Index Cond: (id = 1)
+         Index Searches: 1
+         Buffers: shared hit=5
+ Planning Time: 0.022 ms
+ Execution Time: 0.062 ms
+(8 rows)
+

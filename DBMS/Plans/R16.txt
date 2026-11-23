@@ -1,0 +1,42 @@
+                                                                                     QUERY PLAN                                                                                     
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Result  (cost=4.30..4.31 rows=1 width=1) (actual time=0.053..0.053 rows=1.00 loops=1)
+   Buffers: shared hit=3
+   InitPlan 1
+     ->  Index Only Scan using contest_registrations_user_id_contest_id_key on contest_registrations  (cost=0.29..4.30 rows=1 width=0) (actual time=0.053..0.053 rows=1.00 loops=1)
+           Index Cond: ((user_id = 1) AND (contest_id = 4))
+           Heap Fetches: 0
+           Index Searches: 1
+           Buffers: shared hit=3
+ Planning Time: 0.021 ms
+ Execution Time: 0.057 ms
+(10 rows)
+
+                                                                                     QUERY PLAN                                                                                     
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Result  (cost=4.30..4.31 rows=1 width=1) (actual time=0.003..0.003 rows=1.00 loops=1)
+   Buffers: shared hit=3
+   InitPlan 1
+     ->  Index Only Scan using contest_registrations_user_id_contest_id_key on contest_registrations  (cost=0.29..4.30 rows=1 width=0) (actual time=0.002..0.002 rows=1.00 loops=1)
+           Index Cond: ((user_id = 1) AND (contest_id = 4))
+           Heap Fetches: 0
+           Index Searches: 1
+           Buffers: shared hit=3
+ Planning Time: 0.023 ms
+ Execution Time: 0.006 ms
+(10 rows)
+
+                                                                                     QUERY PLAN                                                                                     
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Result  (cost=4.30..4.31 rows=1 width=1) (actual time=0.002..0.002 rows=1.00 loops=1)
+   Buffers: shared hit=3
+   InitPlan 1
+     ->  Index Only Scan using contest_registrations_user_id_contest_id_key on contest_registrations  (cost=0.29..4.30 rows=1 width=0) (actual time=0.002..0.002 rows=1.00 loops=1)
+           Index Cond: ((user_id = 1) AND (contest_id = 4))
+           Heap Fetches: 0
+           Index Searches: 1
+           Buffers: shared hit=3
+ Planning Time: 0.015 ms
+ Execution Time: 0.004 ms
+(10 rows)
+

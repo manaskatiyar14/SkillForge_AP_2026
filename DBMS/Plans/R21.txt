@@ -1,0 +1,78 @@
+                                                                   QUERY PLAN                                                                   
+------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=246.64..246.76 rows=50 width=26) (actual time=1.881..1.883 rows=50.00 loops=1)
+   Sort Key: c.start_time
+   Sort Method: quicksort  Memory: 27kB
+   Buffers: shared hit=65
+   ->  HashAggregate  (cost=244.60..245.22 rows=50 width=26) (actual time=1.871..1.874 rows=50.00 loops=1)
+         Group Key: c.id
+         Batches: 1  Memory Usage: 32kB
+         Buffers: shared hit=65
+         ->  Hash Right Join  (cost=2.12..194.60 rows=10000 width=26) (actual time=0.012..1.239 rows=10000.00 loops=1)
+               Hash Cond: (r.contest_id = c.id)
+               Buffers: shared hit=65
+               ->  Seq Scan on contest_registrations r  (cost=0.00..164.00 rows=10000 width=8) (actual time=0.002..0.294 rows=10000.00 loops=1)
+                     Buffers: shared hit=64
+               ->  Hash  (cost=1.50..1.50 rows=50 width=22) (actual time=0.009..0.009 rows=50.00 loops=1)
+                     Buckets: 1024  Batches: 1  Memory Usage: 11kB
+                     Buffers: shared hit=1
+                     ->  Seq Scan on contests c  (cost=0.00..1.50 rows=50 width=22) (actual time=0.003..0.005 rows=50.00 loops=1)
+                           Buffers: shared hit=1
+ Planning:
+   Buffers: shared hit=4
+ Planning Time: 0.055 ms
+ Execution Time: 1.894 ms
+(22 rows)
+
+                                                                   QUERY PLAN                                                                   
+------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=246.64..246.76 rows=50 width=26) (actual time=1.776..1.777 rows=50.00 loops=1)
+   Sort Key: c.start_time
+   Sort Method: quicksort  Memory: 27kB
+   Buffers: shared hit=65
+   ->  HashAggregate  (cost=244.60..245.22 rows=50 width=26) (actual time=1.767..1.770 rows=50.00 loops=1)
+         Group Key: c.id
+         Batches: 1  Memory Usage: 32kB
+         Buffers: shared hit=65
+         ->  Hash Right Join  (cost=2.12..194.60 rows=10000 width=26) (actual time=0.011..1.161 rows=10000.00 loops=1)
+               Hash Cond: (r.contest_id = c.id)
+               Buffers: shared hit=65
+               ->  Seq Scan on contest_registrations r  (cost=0.00..164.00 rows=10000 width=8) (actual time=0.001..0.274 rows=10000.00 loops=1)
+                     Buffers: shared hit=64
+               ->  Hash  (cost=1.50..1.50 rows=50 width=22) (actual time=0.009..0.009 rows=50.00 loops=1)
+                     Buckets: 1024  Batches: 1  Memory Usage: 11kB
+                     Buffers: shared hit=1
+                     ->  Seq Scan on contests c  (cost=0.00..1.50 rows=50 width=22) (actual time=0.003..0.005 rows=50.00 loops=1)
+                           Buffers: shared hit=1
+ Planning:
+   Buffers: shared hit=4
+ Planning Time: 0.064 ms
+ Execution Time: 1.787 ms
+(22 rows)
+
+                                                                   QUERY PLAN                                                                   
+------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=246.64..246.76 rows=50 width=26) (actual time=1.704..1.706 rows=50.00 loops=1)
+   Sort Key: c.start_time
+   Sort Method: quicksort  Memory: 27kB
+   Buffers: shared hit=65
+   ->  HashAggregate  (cost=244.60..245.22 rows=50 width=26) (actual time=1.697..1.700 rows=50.00 loops=1)
+         Group Key: c.id
+         Batches: 1  Memory Usage: 32kB
+         Buffers: shared hit=65
+         ->  Hash Right Join  (cost=2.12..194.60 rows=10000 width=26) (actual time=0.009..1.108 rows=10000.00 loops=1)
+               Hash Cond: (r.contest_id = c.id)
+               Buffers: shared hit=65
+               ->  Seq Scan on contest_registrations r  (cost=0.00..164.00 rows=10000 width=8) (actual time=0.001..0.258 rows=10000.00 loops=1)
+                     Buffers: shared hit=64
+               ->  Hash  (cost=1.50..1.50 rows=50 width=22) (actual time=0.007..0.007 rows=50.00 loops=1)
+                     Buckets: 1024  Batches: 1  Memory Usage: 11kB
+                     Buffers: shared hit=1
+                     ->  Seq Scan on contests c  (cost=0.00..1.50 rows=50 width=22) (actual time=0.002..0.004 rows=50.00 loops=1)
+                           Buffers: shared hit=1
+ Planning:
+   Buffers: shared hit=4
+ Planning Time: 0.034 ms
+ Execution Time: 1.714 ms
+(22 rows)
+

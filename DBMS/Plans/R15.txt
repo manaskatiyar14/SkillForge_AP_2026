@@ -1,0 +1,84 @@
+                                                                                 QUERY PLAN                                                                                 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=34.56..34.59 rows=10 width=66) (actual time=0.021..0.022 rows=10.00 loops=1)
+   Sort Key: c.start_time
+   Sort Method: quicksort  Memory: 25kB
+   Buffers: shared hit=14
+   ->  Hash Join  (cost=32.75..34.40 rows=10 width=66) (actual time=0.015..0.020 rows=10.00 loops=1)
+         Hash Cond: (c.id = r.contest_id)
+         Buffers: shared hit=14
+         ->  Seq Scan on contests c  (cost=0.00..1.50 rows=50 width=58) (actual time=0.002..0.003 rows=50.00 loops=1)
+               Buffers: shared hit=1
+         ->  Hash  (cost=32.63..32.63 rows=10 width=12) (actual time=0.012..0.012 rows=10.00 loops=1)
+               Buckets: 1024  Batches: 1  Memory Usage: 9kB
+               Buffers: shared hit=13
+               ->  Bitmap Heap Scan on contest_registrations r  (cost=4.36..32.63 rows=10 width=12) (actual time=0.006..0.010 rows=10.00 loops=1)
+                     Recheck Cond: (user_id = 1)
+                     Heap Blocks: exact=11
+                     Buffers: shared hit=13
+                     ->  Bitmap Index Scan on contest_registrations_user_id_contest_id_key  (cost=0.00..4.36 rows=10 width=0) (actual time=0.003..0.003 rows=11.00 loops=1)
+                           Index Cond: (user_id = 1)
+                           Index Searches: 1
+                           Buffers: shared hit=2
+ Planning:
+   Buffers: shared hit=7
+ Planning Time: 0.060 ms
+ Execution Time: 0.030 ms
+(24 rows)
+
+                                                                                 QUERY PLAN                                                                                 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=34.56..34.59 rows=10 width=66) (actual time=0.020..0.021 rows=10.00 loops=1)
+   Sort Key: c.start_time
+   Sort Method: quicksort  Memory: 25kB
+   Buffers: shared hit=14
+   ->  Hash Join  (cost=32.75..34.40 rows=10 width=66) (actual time=0.014..0.019 rows=10.00 loops=1)
+         Hash Cond: (c.id = r.contest_id)
+         Buffers: shared hit=14
+         ->  Seq Scan on contests c  (cost=0.00..1.50 rows=50 width=58) (actual time=0.002..0.004 rows=50.00 loops=1)
+               Buffers: shared hit=1
+         ->  Hash  (cost=32.63..32.63 rows=10 width=12) (actual time=0.010..0.010 rows=10.00 loops=1)
+               Buckets: 1024  Batches: 1  Memory Usage: 9kB
+               Buffers: shared hit=13
+               ->  Bitmap Heap Scan on contest_registrations r  (cost=4.36..32.63 rows=10 width=12) (actual time=0.005..0.009 rows=10.00 loops=1)
+                     Recheck Cond: (user_id = 1)
+                     Heap Blocks: exact=11
+                     Buffers: shared hit=13
+                     ->  Bitmap Index Scan on contest_registrations_user_id_contest_id_key  (cost=0.00..4.36 rows=10 width=0) (actual time=0.002..0.002 rows=11.00 loops=1)
+                           Index Cond: (user_id = 1)
+                           Index Searches: 1
+                           Buffers: shared hit=2
+ Planning:
+   Buffers: shared hit=4
+ Planning Time: 0.051 ms
+ Execution Time: 0.029 ms
+(24 rows)
+
+                                                                                 QUERY PLAN                                                                                 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=34.56..34.59 rows=10 width=66) (actual time=0.016..0.017 rows=10.00 loops=1)
+   Sort Key: c.start_time
+   Sort Method: quicksort  Memory: 25kB
+   Buffers: shared hit=14
+   ->  Hash Join  (cost=32.75..34.40 rows=10 width=66) (actual time=0.011..0.015 rows=10.00 loops=1)
+         Hash Cond: (c.id = r.contest_id)
+         Buffers: shared hit=14
+         ->  Seq Scan on contests c  (cost=0.00..1.50 rows=50 width=58) (actual time=0.002..0.003 rows=50.00 loops=1)
+               Buffers: shared hit=1
+         ->  Hash  (cost=32.63..32.63 rows=10 width=12) (actual time=0.008..0.008 rows=10.00 loops=1)
+               Buckets: 1024  Batches: 1  Memory Usage: 9kB
+               Buffers: shared hit=13
+               ->  Bitmap Heap Scan on contest_registrations r  (cost=4.36..32.63 rows=10 width=12) (actual time=0.004..0.007 rows=10.00 loops=1)
+                     Recheck Cond: (user_id = 1)
+                     Heap Blocks: exact=11
+                     Buffers: shared hit=13
+                     ->  Bitmap Index Scan on contest_registrations_user_id_contest_id_key  (cost=0.00..4.36 rows=10 width=0) (actual time=0.002..0.002 rows=11.00 loops=1)
+                           Index Cond: (user_id = 1)
+                           Index Searches: 1
+                           Buffers: shared hit=2
+ Planning:
+   Buffers: shared hit=4
+ Planning Time: 0.038 ms
+ Execution Time: 0.022 ms
+(24 rows)
+

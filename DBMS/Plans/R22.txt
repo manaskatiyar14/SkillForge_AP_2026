@@ -1,0 +1,87 @@
+                                                                            QUERY PLAN                                                                             
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Nested Loop Left Join  (cost=62.12..61701.85 rows=1000 width=28) (actual time=0.028..6.846 rows=1000.00 loops=1)
+   Buffers: shared hit=22028
+   ->  Merge Left Join  (cost=0.55..110.55 rows=1000 width=20) (actual time=0.007..0.382 rows=1000.00 loops=1)
+         Merge Cond: (u.id = up.user_id)
+         Buffers: shared hit=27
+         ->  Index Scan using users_pkey on users u  (cost=0.28..50.27 rows=1000 width=12) (actual time=0.003..0.149 rows=1000.00 loops=1)
+               Index Searches: 1
+               Buffers: shared hit=16
+         ->  Index Scan using user_progress_user_id_key on user_progress up  (cost=0.28..45.27 rows=1000 width=12) (actual time=0.003..0.095 rows=1000.00 loops=1)
+               Index Searches: 1
+               Buffers: shared hit=11
+   ->  Aggregate  (cost=61.57..61.58 rows=1 width=16) (actual time=0.006..0.006 rows=1.00 loops=1000)
+         Buffers: shared hit=22001
+         ->  Bitmap Heap Scan on submissions  (cost=4.44..61.47 rows=20 width=1) (actual time=0.001..0.005 rows=20.00 loops=1000)
+               Recheck Cond: (user_id = u.id)
+               Heap Blocks: exact=20001
+               Buffers: shared hit=22001
+               ->  Bitmap Index Scan on idx_submissions_user_id  (cost=0.00..4.44 rows=20 width=0) (actual time=0.001..0.001 rows=20.01 loops=1000)
+                     Index Cond: (user_id = u.id)
+                     Index Searches: 1000
+                     Buffers: shared hit=2000
+ Planning:
+   Buffers: shared hit=12
+ Planning Time: 0.119 ms
+ Execution Time: 6.881 ms
+(25 rows)
+
+                                                                            QUERY PLAN                                                                             
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Nested Loop Left Join  (cost=62.12..61701.85 rows=1000 width=28) (actual time=0.018..5.655 rows=1000.00 loops=1)
+   Buffers: shared hit=22028
+   ->  Merge Left Join  (cost=0.55..110.55 rows=1000 width=20) (actual time=0.006..0.233 rows=1000.00 loops=1)
+         Merge Cond: (u.id = up.user_id)
+         Buffers: shared hit=27
+         ->  Index Scan using users_pkey on users u  (cost=0.28..50.27 rows=1000 width=12) (actual time=0.003..0.064 rows=1000.00 loops=1)
+               Index Searches: 1
+               Buffers: shared hit=16
+         ->  Index Scan using user_progress_user_id_key on user_progress up  (cost=0.28..45.27 rows=1000 width=12) (actual time=0.002..0.055 rows=1000.00 loops=1)
+               Index Searches: 1
+               Buffers: shared hit=11
+   ->  Aggregate  (cost=61.57..61.58 rows=1 width=16) (actual time=0.005..0.005 rows=1.00 loops=1000)
+         Buffers: shared hit=22001
+         ->  Bitmap Heap Scan on submissions  (cost=4.44..61.47 rows=20 width=1) (actual time=0.001..0.004 rows=20.00 loops=1000)
+               Recheck Cond: (user_id = u.id)
+               Heap Blocks: exact=20001
+               Buffers: shared hit=22001
+               ->  Bitmap Index Scan on idx_submissions_user_id  (cost=0.00..4.44 rows=20 width=0) (actual time=0.001..0.001 rows=20.01 loops=1000)
+                     Index Cond: (user_id = u.id)
+                     Index Searches: 1000
+                     Buffers: shared hit=2000
+ Planning:
+   Buffers: shared hit=12
+ Planning Time: 0.094 ms
+ Execution Time: 5.686 ms
+(25 rows)
+
+                                                                            QUERY PLAN                                                                             
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Nested Loop Left Join  (cost=62.12..61701.85 rows=1000 width=28) (actual time=0.016..5.538 rows=1000.00 loops=1)
+   Buffers: shared hit=22028
+   ->  Merge Left Join  (cost=0.55..110.55 rows=1000 width=20) (actual time=0.005..0.239 rows=1000.00 loops=1)
+         Merge Cond: (u.id = up.user_id)
+         Buffers: shared hit=27
+         ->  Index Scan using users_pkey on users u  (cost=0.28..50.27 rows=1000 width=12) (actual time=0.002..0.072 rows=1000.00 loops=1)
+               Index Searches: 1
+               Buffers: shared hit=16
+         ->  Index Scan using user_progress_user_id_key on user_progress up  (cost=0.28..45.27 rows=1000 width=12) (actual time=0.002..0.058 rows=1000.00 loops=1)
+               Index Searches: 1
+               Buffers: shared hit=11
+   ->  Aggregate  (cost=61.57..61.58 rows=1 width=16) (actual time=0.005..0.005 rows=1.00 loops=1000)
+         Buffers: shared hit=22001
+         ->  Bitmap Heap Scan on submissions  (cost=4.44..61.47 rows=20 width=1) (actual time=0.001..0.004 rows=20.00 loops=1000)
+               Recheck Cond: (user_id = u.id)
+               Heap Blocks: exact=20001
+               Buffers: shared hit=22001
+               ->  Bitmap Index Scan on idx_submissions_user_id  (cost=0.00..4.44 rows=20 width=0) (actual time=0.001..0.001 rows=20.01 loops=1000)
+                     Index Cond: (user_id = u.id)
+                     Index Searches: 1000
+                     Buffers: shared hit=2000
+ Planning:
+   Buffers: shared hit=12
+ Planning Time: 0.082 ms
+ Execution Time: 5.567 ms
+(25 rows)
+

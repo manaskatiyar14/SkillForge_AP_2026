@@ -1,0 +1,42 @@
+                                                   QUERY PLAN                                                    
+-----------------------------------------------------------------------------------------------------------------
+ Sort  (cost=71.18..71.21 rows=10 width=95) (actual time=0.850..0.890 rows=667.00 loops=1)
+   Sort Key: id
+   Sort Method: quicksort  Memory: 103kB
+   Buffers: shared hit=41
+   ->  Seq Scan on questions  (cost=0.00..71.02 rows=10 width=95) (actual time=0.012..0.642 rows=667.00 loops=1)
+         Filter: (lower((difficulty)::text) = 'easy'::text)
+         Rows Removed by Filter: 1334
+         Buffers: shared hit=41
+ Planning Time: 0.064 ms
+ Execution Time: 0.936 ms
+(10 rows)
+
+                                                   QUERY PLAN                                                    
+-----------------------------------------------------------------------------------------------------------------
+ Sort  (cost=71.18..71.21 rows=10 width=95) (actual time=0.462..0.485 rows=667.00 loops=1)
+   Sort Key: id
+   Sort Method: quicksort  Memory: 103kB
+   Buffers: shared hit=41
+   ->  Seq Scan on questions  (cost=0.00..71.02 rows=10 width=95) (actual time=0.005..0.363 rows=667.00 loops=1)
+         Filter: (lower((difficulty)::text) = 'easy'::text)
+         Rows Removed by Filter: 1334
+         Buffers: shared hit=41
+ Planning Time: 0.026 ms
+ Execution Time: 0.507 ms
+(10 rows)
+
+                                                   QUERY PLAN                                                    
+-----------------------------------------------------------------------------------------------------------------
+ Sort  (cost=71.18..71.21 rows=10 width=95) (actual time=0.810..0.841 rows=667.00 loops=1)
+   Sort Key: id
+   Sort Method: quicksort  Memory: 103kB
+   Buffers: shared hit=41
+   ->  Seq Scan on questions  (cost=0.00..71.02 rows=10 width=95) (actual time=0.007..0.629 rows=667.00 loops=1)
+         Filter: (lower((difficulty)::text) = 'easy'::text)
+         Rows Removed by Filter: 1334
+         Buffers: shared hit=41
+ Planning Time: 0.028 ms
+ Execution Time: 0.876 ms
+(10 rows)
+
