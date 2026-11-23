@@ -1,20 +1,19 @@
-
--- A1. Find a user during login
+-- R1 | READ | Find a user during login
 SELECT id, full_name, email, password_hash, created_at
 FROM users
 WHERE email = $1;
 
--- A2. Get user profile details
+-- R2 | READ | Get user profile details
 SELECT id, full_name, email, created_at
 FROM users
 WHERE id = $1;
 
--- A3. Create a new user account
+-- W1 | WRITE | Create a new user account
 INSERT INTO users (full_name, email, password_hash)
 VALUES ($1, $2, $3)
 RETURNING id, full_name, email, created_at;
 
--- A4. Update a user's name
+-- W2 | WRITE | Update a user's name
 UPDATE users
 SET full_name = $1
 WHERE id = $2
@@ -25,38 +24,38 @@ RETURNING id, full_name, email, created_at;
 -- B. QUESTIONS
 -- ============================================================
 
--- B1. Get all questions
+-- R3 | READ | Get all questions
 SELECT id, title, description, option_a, option_b,
        option_c, option_d, category, difficulty, created_at
 FROM questions
 ORDER BY id;
 
--- B2. Find questions by category
+-- R4 | READ | Find questions by category
 SELECT id, title, description, option_a, option_b,
        option_c, option_d, category, difficulty, created_at
 FROM questions
 WHERE LOWER(category) = LOWER($1)
 ORDER BY id;
 
--- B3. Find questions by difficulty
+-- R5 | READ | Find questions by difficulty
 SELECT id, title, description, option_a, option_b,
        option_c, option_d, category, difficulty, created_at
 FROM questions
 WHERE LOWER(difficulty) = LOWER($1)
 ORDER BY id;
 
--- B4. Get one question by ID
+-- R6 | READ | Get one question by ID
 SELECT id, title, description, option_a, option_b,
        option_c, option_d, category, difficulty, created_at
 FROM questions
 WHERE id = $1;
 
--- B5. Get correct answer and explanation (Admin only)
+-- R7 | READ | Get correct answer and explanation (Admin only)
 SELECT *
 FROM questions
 WHERE id = $1;
 
--- B6. Add a new question (Admin only)
+-- W3 | WRITE | Add a new question (Admin only)
 INSERT INTO questions (
     title, description, option_a, option_b,
     option_c, option_d, correct_option,
@@ -66,7 +65,7 @@ VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
 RETURNING id, title, description, option_a, option_b,
           option_c, option_d, category, difficulty, created_at;
 
--- B7. Update a question (Admin only)
+-- W4 | WRITE | Update a question (Admin only)
 UPDATE questions
 SET title = $1,
     description = $2,
@@ -82,7 +81,7 @@ WHERE id = $11
 RETURNING id, title, description, option_a, option_b,
           option_c, option_d, category, difficulty, created_at;
 
--- B8. Delete a question (Admin only)
+-- W5 | WRITE | Delete a question (Admin only)
 DELETE FROM questions
 WHERE id = $1;
 
@@ -91,12 +90,12 @@ WHERE id = $1;
 -- C. SUBMISSIONS
 -- ============================================================
 
--- C1. Get the correct answer for checking a submission
+-- R8 | READ | Get the correct answer for checking a submission
 SELECT correct_option, explanation
 FROM questions
 WHERE id = $1;
 
--- C2. Save a user's answer
+-- W6 | WRITE | Save a user's answer
 INSERT INTO submissions (
     user_id, question_id, selected_option,
     is_correct, attempt_id
@@ -104,7 +103,7 @@ INSERT INTO submissions (
 VALUES ($1, $2, $3, $4, $5)
 RETURNING *;
 
--- C3. Get the latest 50 submissions of a user
+-- R9 | READ | Get the latest 50 submissions of a user
 SELECT s.id, s.question_id, q.title, q.category,
        q.difficulty, s.selected_option,
        s.is_correct, s.submitted_at
@@ -114,20 +113,20 @@ WHERE s.user_id = $1
 ORDER BY s.submitted_at DESC
 LIMIT 50;
 
--- C4. Get all attempts for one question
+-- R10 | READ | Get all attempts for one question
 SELECT id, user_id, selected_option, is_correct, submitted_at
 FROM submissions
 WHERE question_id = $1
 ORDER BY submitted_at DESC;
 
--- C5. Count correct and incorrect attempts
+-- R11 | READ | Count correct and incorrect attempts
 SELECT
     COUNT(*) FILTER (WHERE is_correct)::integer AS correct_attempts,
     COUNT(*) FILTER (WHERE NOT is_correct)::integer AS incorrect_attempts
 FROM submissions
 WHERE user_id = $1;
 
--- C6. Count different questions solved correctly
+-- R12 | READ | Count different questions solved correctly
 SELECT COUNT(DISTINCT question_id)::integer AS total_solved
 FROM submissions
 WHERE user_id = $1
@@ -138,7 +137,7 @@ WHERE user_id = $1
 -- D. CONTESTS
 -- ============================================================
 
--- D1. Show all contests with registration counts
+-- R13 | READ | Show all contests with registration counts
 SELECT c.*, COUNT(r.id)::integer AS registration_count
 FROM contests AS c
 LEFT JOIN contest_registrations AS r
@@ -146,23 +145,23 @@ LEFT JOIN contest_registrations AS r
 GROUP BY c.id
 ORDER BY c.start_time ASC;
 
--- D2. Get details of one contest
+-- R14 | READ | Get details of one contest
 SELECT *
 FROM contests
 WHERE id = $1;
 
--- D3. Register a user for a contest
+-- W7 | WRITE | Register a user for a contest
 INSERT INTO contest_registrations (user_id, contest_id)
 VALUES ($1, $2)
 RETURNING *;
 
--- D4. Register a user without creating duplicate registrations
+-- W8 | WRITE | Register a user without creating duplicate registrations
 INSERT INTO contest_registrations (user_id, contest_id)
 VALUES ($1, $2)
 ON CONFLICT (user_id, contest_id) DO NOTHING
 RETURNING *;
 
--- D5. Get all contests registered by a user
+-- R15 | READ | Get all contests registered by a user
 SELECT c.*, r.registered_at
 FROM contests AS c
 JOIN contest_registrations AS r
@@ -170,7 +169,7 @@ JOIN contest_registrations AS r
 WHERE r.user_id = $1
 ORDER BY c.start_time;
 
--- D6. Check whether a user is registered
+-- R16 | READ | Check whether a user is registered
 SELECT EXISTS (
     SELECT 1
     FROM contest_registrations
@@ -183,12 +182,12 @@ SELECT EXISTS (
 -- E. USER PROGRESS
 -- ============================================================
 
--- E1. Get saved progress of a user
+-- R17 | READ | Get saved progress of a user
 SELECT user_id, total_solved, overall_rating, updated_at
 FROM user_progress
 WHERE user_id = $1;
 
--- E2. Calculate a user's performance
+-- R18 | READ | Calculate a user's performance
 SELECT
     COUNT(s.id)::integer AS total_attempted,
 
@@ -225,7 +224,7 @@ GROUP BY up.total_solved, up.overall_rating;
 -- F. REPORTS
 -- ============================================================
 
--- F1. Find the most attempted questions
+-- R19 | READ | Find the most attempted questions
 SELECT q.id, q.title,
        COUNT(s.id)::integer AS attempt_count
 FROM questions AS q
@@ -235,7 +234,7 @@ GROUP BY q.id, q.title
 ORDER BY attempt_count DESC, q.id
 LIMIT 10;
 
--- F2. Find questions with the most correct answers
+-- R20 | READ | Find questions with the most correct answers
 SELECT q.id, q.title,
        COUNT(s.id)::integer AS correct_count
 FROM questions AS q
@@ -246,7 +245,7 @@ GROUP BY q.id, q.title
 ORDER BY correct_count DESC, q.id
 LIMIT 10;
 
--- F3. Count registrations for each contest
+-- R21 | READ | Count registrations for each contest
 SELECT c.id, c.title,
        COUNT(r.id)::integer AS registration_count
 FROM contests AS c
@@ -255,7 +254,7 @@ LEFT JOIN contest_registrations AS r
 GROUP BY c.id, c.title
 ORDER BY c.start_time;
 
--- F4. Get overall performance of all users
+-- R22 | READ | Get overall performance of all users
 SELECT
     u.id,
     u.full_name,
